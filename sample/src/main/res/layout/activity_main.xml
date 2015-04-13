@@ -1,0 +1,29 @@
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:labwerk="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flipper"
+    style="@style/MatchParent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/MatchParent">
+
+        <sdk.labwerk.core.ui.widgets.IndoorMap
+            android:id="@+id/indoor_map"
+            style="@style/MatchParent"
+            android:layout_centerInParent="true"
+            labwerk:pin_icon="@drawable/pin_image_green"
+            labwerk:pin_with_arrow_icon="@drawable/pinpoint_with_arrow"
+            labwerk:exhibitor_icon="@drawable/pin_image_blue" />
+
+        <CheckBox
+            android:id="@+id/navigation_switcher"
+            style="@style/WrapContent"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:button="@drawable/main_activity_navigation_check_box" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</ViewFlipper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sdk.labwerk.sample">
+
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".SampleApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name">
+
+        <meta-data
+            android:name="sdk.labwerk.CUSTOMER_TOKEN"
+            android:value="9a812287-e61a-410b-9ff1-db0817df8284" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="51412b67d168e89e6d760e692b2ac8ab89a6af0d" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

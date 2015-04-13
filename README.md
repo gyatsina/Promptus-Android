@@ -1,4 +1,4 @@
-Labwerk sdk sample app
+Promptus Sample App
 ===========================
 
 In order start using sdk please follow the steps below:
@@ -6,7 +6,7 @@ In order start using sdk please follow the steps below:
 #### Add token to AndroidManifest
     <meta-data
             android:name="sdk.labwerk.CUSTOMER_TOKEN"
-            android:value="9a812287-e61a-410b-9ff1-db0817df8284" />
+            android:value="PLEASE_INSERT_TOKEN_HERE" />
 
 #### Add all library dependency to project build script
     compile(name: 'labwerk-sdk', ext: 'aar')

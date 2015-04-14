@@ -154,25 +154,30 @@ public class MainActivity extends Activity {
     private class OnNavigationChange implements CompoundButton.OnCheckedChangeListener {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
+            if (!isChecked) {
+                indoorMapView.stopNavigation();
+                return;
+            }
+            if (indoorMapView.hasCurrentLocation()) {
                 indoorMapView.startNavigation();
             } else {
-                indoorMapView.stopNavigation();
+                Toast.makeText(MainActivity.this, R.string.error_cuurent_location_not_found, Toast.LENGTH_SHORT).show();
+                navigationSwitcher.setChecked(false);
             }
         }
     }
 
     private class MatcherFinder extends BaseAsyncTask<Object, Object, List<Beacon>> {
 
-        private final List<Beacon> beacons;
+        private final List<Beacon> beaconsHardware;
 
         public MatcherFinder(List<Beacon> beacons) {
-            this.beacons = beacons;
+            this.beaconsHardware = beacons;
         }
 
         @Override
         public void onResult(List<Beacon> beacons) {
-            indoorMapView.finMatch(beacons);
+            indoorMapView.finMatch(beacons,beaconsHardware);
         }
 
         @Override
@@ -182,7 +187,7 @@ public class MainActivity extends Activity {
 
         @Override
         public List<Beacon> performInBackground(Object[] params) throws Exception {
-            return BeaconService.getInstance(MainActivity.this).getBeaconMatch(beacons);
+            return BeaconService.getInstance(MainActivity.this).getBeaconMatch(beaconsHardware);
         }
     }
 
